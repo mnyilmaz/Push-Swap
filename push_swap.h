@@ -6,7 +6,7 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 01:37:56 by mervenuryil       #+#    #+#             */
-/*   Updated: 2023/08/15 15:36:55 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/08/16 08:49:12 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ typedef struct s_sort
 	
 } t_sort;
 
+void 		len_of_the_stack(char **arguments, t_sort *sort);
+void		is_stack(char **arguments, int argc);
 void		put_into_stack_A(char **arguments, t_sort *sort);
-void 		char_to_int(char *arguments, t_sort *sort);
-void 		is_A_sorted(int *stack_A, int len_A);
-//void 		len_A(char *array, t_sort *sort);
-//void 		len_B(char *array, t_sort *sort);
+void		digit_control(char **arguments);
+int			is_identical(t_sort *sort);
+void		is_A_sorted(int *stack_A, int len_A);
 void		free_str(char **str);
 int			ft_atoi(char *s);
 size_t		ft_strlen(const char *s);
@@ -41,7 +42,7 @@ char		*ft_strdup(const char *s1);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 static int	counter(char const *s, char c);
 char		**ft_split(char const *s, char c);
-int			the_chosen_flag(t_sort *sort);
+
 int			ft_isdigit(int c);
 void		ft_error(char *error_msg);
 void 		sa(t_sort *sort);
