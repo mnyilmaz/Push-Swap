@@ -6,7 +6,7 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 01:37:56 by mervenuryil       #+#    #+#             */
-/*   Updated: 2023/08/16 08:49:12 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/08/16 15:20:23 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,26 @@
 typedef struct s_sort
 {
 	int				*array;
-	int				*stack_A;
-	int				*stack_B;
+	int				*stack_a;
+	int				*stack_b;
+	int				*stack_id;
 	char			**splitted;
 	int				temp;
-	int				*temp_A;
-	int				*temp_B;
-	int				len_A;
-	int				len_B;
+	int				temp_len;
+	int				*temp_a;
+	int				*temp_b;
+	int				len_a;
+	int				len_b;
 	struct s_sort	*next;
 	
 } t_sort;
 
-void 		len_of_the_stack(char **arguments, t_sort *sort);
 void		is_stack(char **arguments, int argc);
-void		put_into_stack_A(char **arguments, t_sort *sort);
 void		digit_control(char **arguments);
 int			is_identical(t_sort *sort);
-void		is_A_sorted(int *stack_A, int len_A);
+void 		len_of_the_stack(char **arguments, t_sort *sort);
+void		put_into_stack_a(char **arguments, t_sort *sort);
+void		is_a_sorted(int *stack_a, int len_a);
 void		free_str(char **str);
 int			ft_atoi(char *s);
 size_t		ft_strlen(const char *s);
@@ -43,7 +45,6 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 static int	counter(char const *s, char c);
 char		**ft_split(char const *s, char c);
 
-int			ft_isdigit(int c);
 void		ft_error(char *error_msg);
 void 		sa(t_sort *sort);
 void 		sb(t_sort *sort);

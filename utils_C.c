@@ -6,11 +6,11 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:54:04 by mervenuryil       #+#    #+#             */
-/*   Updated: 2023/08/15 13:01:07 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/08/16 15:04:07 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 int	ft_atoi(char *s)
 {
@@ -34,9 +34,9 @@ int	ft_atoi(char *s)
 		result = (*s - 48) + (result * 10);
 		s++;
 		if (result * sign > 2147483647)
-			return(0);
+			return (0);
 		if (result * sign < -2147483648)
-			return(0);
+			return (0);
 	}
 	return (result * sign);
 }

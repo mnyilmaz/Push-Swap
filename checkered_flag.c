@@ -6,11 +6,11 @@
 /*   By: mervenuryilmaz <mervenuryilmaz@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:52:25 by mervenuryil       #+#    #+#             */
-/*   Updated: 2023/08/16 14:39:59 by mervenuryil      ###   ########.fr       */
+/*   Updated: 2023/08/16 15:59:15 by mervenuryil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	ft_error(char *error_msg)
 {
@@ -25,13 +25,6 @@ void	ft_error(char *error_msg)
 		i++;
 	}
 	exit(0);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= 0 && c <= 9 || c <= ' ')
-		return (1);
-	return (0);
 }
 
 void	is_stack(char **arguments, int argc)
@@ -49,16 +42,16 @@ void	is_stack(char **arguments, int argc)
 	}
 }
 
-void	is_A_sorted(int *stack_A, int len_A)
+void	is_a_sorted(int *stack_a, int len_a)
 {
 	int	i;
 
 	i = 0;
-	while(i < len_A)
+	while (i < len_a)
 	{
-		if (stack_A[i] < stack_A[i + 1])
+		if (stack_a[i] < stack_a[i + 1])
 			i++;
-		else if (stack_A[i] >= stack_A[i + 1])
+		else if (stack_a[i] >= stack_a[i + 1])
 		{
 			write(1, "not sorted at all\n", 19);
 			return ;
@@ -72,18 +65,27 @@ int	is_identical(t_sort *sort)
 {
 	int	i;
 	int	j;
+	int	*temp;
 
+	temp = malloc(sizeof (int) * sort->len_a);
 	i = 0;
-	while (i < sort->len_A)
+	while (i < sort->len_a)
+	{
+		temp[i] = sort->stack_a[i];
+		i++;
+	}
+	i = 0;
+	while (i < sort->len_a)
 	{
 		j = i + 1;
-		while (j < sort->len_B)
+		while (j < sort->len_a)
 		{
-			if (sort->stack_A[i] == sort->stack_B[j])
+			if (sort->stack_a[i] == temp[j])
 				ft_error("\033[1;43mThis stack includes same numbers.\033[1;0m\n");
 			j++;
 		}
 		i++;
 	}
+	free(temp);
 	return (1);
 }
